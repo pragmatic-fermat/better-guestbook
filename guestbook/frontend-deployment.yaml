@@ -16,18 +16,22 @@ spec:
     spec:
       containers:
       - name: php-redis
-        image: gcr.io/google-samples/gb-frontend:v5
+        image: reytans/guestbook-ng:34
         resources:
           requests:
             cpu: 100m
-            memory: 50Mi
+            memory: 100Mi
         env:
         - name: GET_HOSTS_FROM
-          value: dns
+          #value: dns
           # If your cluster config does not include a dns service, then to
           # instead access environment variables to find service host
           # info, comment out the 'value: dns' line above, and uncomment the
           # line below:
-          # value: env
+          value: env
+        - name: REDIS_SENTINEL_SERVICE_HOST
+          value: redis
+        - name: REDIS_PWD
+          value: redis-password
         ports:
         - containerPort: 80
