@@ -21,6 +21,9 @@ spec:
           requests:
             cpu: 200m
             memory: 100Mi
+          limits:
+            cpu: 200m
+            memory: 100Mi
         env:
         - name: GET_HOSTS_FROM
           value: dns
