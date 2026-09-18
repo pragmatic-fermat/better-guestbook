@@ -24,6 +24,11 @@ spec:
           limits:
             cpu: 400m
             memory: 200Mi
+        resizePolicy:
+          - resourceName: cpu
+            restartPolicy: NotRequired
+          - resourceName: memory
+            restartPolicy: RestartContainer
         env:
         - name: GET_HOSTS_FROM
           value: dns
